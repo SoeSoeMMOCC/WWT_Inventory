@@ -1,0 +1,153 @@
+﻿<UserControl x:Class="WWT_Inventory.View.Sale.SaleInfoView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WWT_Inventory.View.Sale"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="1000" Background="#827397" Loaded="UserControl_Loaded" >
+    <UserControl.Resources>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="White" />
+            <Setter Property="FontWeight" Value="Bold" />
+            <Setter Property="FontSize" Value="13" />
+
+        </Style>
+       
+    </UserControl.Resources>
+    <Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="120"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0 0 0 10" Background="#827397">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="35"/>
+                    <RowDefinition Height="35"/>
+                </Grid.RowDefinitions>
+                <StackPanel DockPanel.Dock="Top" Grid.Row="0" Height="50"  Orientation="Horizontal">
+                    <Button x:Name="btn_text"  Margin="10,10,20,6" Height="40" Width="250" FontSize="20" Foreground="White"                             
+                    BorderBrush="{x:Null}"
+                        Background="{x:Null}"    
+                        HorizontalContentAlignment="Left"
+                        FontWeight="ExtraBold" Content="Sale Information">
+                       
+                    </Button>
+                    <Button x:Name="btn_add_sale"  Margin="10,10,10,10" Height="28" Width="150" FontSize="12"  Foreground="White" 
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                    BorderBrush="{x:Null}" Content="ADD SALE ORDER"
+                        Background="#28abb9"                        
+                        FontWeight="ExtraBold" Click="btn_add_sale_Click">
+                    </Button>
+                    <Button x:Name="btn_add_customer"  Margin="10,10,10,10" Height="28" Width="150" FontSize="12"  Foreground="White" 
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                    BorderBrush="{x:Null}" Content="ADD CUSTOMER"
+                        Background="#28abb9"                        
+                        FontWeight="ExtraBold" Click="btn_add_customer_Click">
+                    </Button>
+
+                </StackPanel>
+                <StackPanel Grid.Row="1" Orientation="Horizontal"  >
+                    <Label Content="From Date : " Width="200" Margin="5 0 0 0"/>
+                    <Label Content="To Date : " Width="200" Margin="10 0 0 0"/>
+                    <Label Content="Sale Invoice No : " Width="200" Margin="10 0 0 0"/>
+                    <Label Content="Customers : " Width="200" Margin="10 0 0 0"/>
+                </StackPanel>
+
+                <StackPanel Grid.Row="2" Orientation="Horizontal">
+                    <Grid Grid.Row="2">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="28"/>
+                        </Grid.RowDefinitions>
+                        <DatePicker Name="from_date" Grid.Column="0" Width="200" Margin="5 0 5 0" 
+                                    Focusable="True"
+                                    VerticalContentAlignment="Center"/>
+                        <DatePicker Name="to_date" Grid.Column="1" Width="200" Margin="5 0 5 0"   Height="28"  
+                                    Focusable="True"
+                                    VerticalContentAlignment="Center" />
+                        <TextBox Name="txt_saleinvoice" Grid.Column="2" Width="200" Margin="5 0 5 0" BorderThickness="1" BorderBrush="#FF28ABB9" Background="White" VerticalContentAlignment="Center" />
+                        <ComboBox Name="cb_customer"  Grid.Column="3" Width="200" Margin="5 0 5 0" />
+                        <Button x:Name="btn_search" Grid.Column="4" Margin="15,0,0,0" Height="28" Width="100" FontSize="12"  Foreground="White" 
+                    VerticalContentAlignment="Center" HorizontalContentAlignment="Center"
+                    BorderBrush="{x:Null}"
+                        Background="#28abb9"  Content="SEARCH"                
+                        FontWeight="ExtraBold" Click="btn_search_Click" >
+                            <!--<Grid Width="100" Height="28" Margin="-12">
+                                <materialDesign:PackIcon Kind="CirclesAdd" VerticalAlignment="Center"  FontWeight="Bold" Width="35" Grid.Row="0" Margin="-5,0,0,0" Height="24" />
+                                <TextBlock HorizontalAlignment="Right" 
+                         VerticalAlignment="Center" Text="SEARCH" Height="20" Width="65" Margin="0,5,0,6" />
+                            </Grid>-->
+                        </Button>
+                    </Grid>
+
+                </StackPanel>
+
+            </Grid>
+
+
+        </Grid>
+
+        <!--<Grid Grid.Row="0"  Grid.Column="1" Background="#827397" >
+
+            <StackPanel DockPanel.Dock="Top" Height="50" Orientation="Horizontal">
+                
+            </StackPanel>
+        </Grid>-->
+        <Border BorderBrush="#28abb9" BorderThickness="1" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#FFF1EDED">
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#FFF1EDED">
+                <DataGrid Name="grdSaleList" AutoGenerateColumns="False" AllowDrop="False" CanUserAddRows="False" 
+                                 Margin="0 0 0 0" FontSize="12"  VerticalScrollBarVisibility="Auto" ColumnHeaderHeight="35" MinRowHeight="25" 
+                      MinColumnWidth="15" HorizontalScrollBarVisibility="Auto"
+                          VerticalGridLinesBrush="#28abb9" HorizontalGridLinesBrush="#28abb9"
+                                  CanUserDeleteRows="False" IsReadOnly="True"
+                       VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  VerticalAlignment="Top" GridLinesVisibility="All" CanUserReorderColumns="False" CanUserResizeColumns="False"  >
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Binding="{Binding SaleInvoiceCD}"  Header="InvoiceCD" Width="0.5*" Visibility="Visible" />
+                        <DataGridTextColumn Binding="{Binding SaleOrderCD}"  Header="OrderCD" Width="0.5*" Visibility="Hidden" />
+                        <DataGridTextColumn Binding="{Binding SaleInvoiceDate}"  Header="Date" Width="0.5*" Visibility="Visible" />
+                        <DataGridTextColumn Binding="{Binding CustomerCD}" Width="1*" Header="CustomerCD" Visibility="Hidden"/>
+                        <DataGridTextColumn Binding="{Binding CustName}"  Header="CustomerName" Width="0.5*"  Visibility="Visible"/>
+                        <DataGridTextColumn Binding="{Binding DeviceID}"  Header="DeviceID" Width="0.4*"  Visibility="Visible"/>
+                        <DataGridTextColumn Binding="{Binding Qty}"  Header="QTY" Visibility="Visible" Width="0.3*"/>
+                        <DataGridTextColumn Binding="{Binding TotalAmount}" Width="0.4*" Header="Total" Visibility="Visible"/>
+                        <DataGridTextColumn Binding="{Binding DiscountAmount}" Width="0.4*" Header="Discount" Visibility="Visible"/>
+                        <DataGridTextColumn Binding="{Binding Tax}" Width="0.4*" Header="Tax" Visibility="Visible"/>
+                        <DataGridTextColumn Binding="{Binding Amount}" Width="0.4*" Header="Amount" Visibility="Visible"/>
+                        <DataGridTemplateColumn Header="View" Width="0.5*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Height="20" Width="50" FontSize="8" Background="#827397" Name="ButtonView" Click="ButtonView_Click">View</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTemplateColumn Header="Delete" Width="0.5*">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <Button Background="#827397" Height="20" Width="50" FontSize="8" Name="DeleteButton" Click="DeleteButton_Click">Delete</Button>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                        </DataGridTemplateColumn>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </DockPanel>
+        </Border>
+
+
+
+    </Grid>
+</UserControl>

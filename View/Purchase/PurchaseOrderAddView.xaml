@@ -1,0 +1,187 @@
+﻿<Window x:Class="WWT_Inventory.View.Purchase.PurchaseOrderAddView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WWT_Inventory.View.Purchase"
+        mc:Ignorable="d" WindowStartupLocation="CenterScreen"
+        Title="WWT - ADD PURCHASE ORDER INFORMATION" Height="700" Width="1200" ResizeMode="NoResize" Loaded="Window_Loaded">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            <Setter Property="BorderBrush" Value="#28abb9"/>
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="BorderBrush" Value="#28abb9" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#28abb9"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+            <Setter Property="FontSize" Value="16"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="50"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="200"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="500"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <Label Content="Purchase Order Information" FontWeight="Bold" FontSize="25" />
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.ColumnSpan="2" Orientation="Horizontal">
+            <ComboBox x:Name="cb_category" Width="225" Height="33" Margin="10 0 0 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" SelectionChanged="cb_category_SelectionChanged" KeyDown="cb_category_KeyDown"/>
+            <ComboBox x:Name="cb_subcategory" Width="225" Height="33" Margin="10 0 0 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="cb_subcategory_KeyDown"/>
+            <TextBox x:Name="txt_itemcd" Width="225" Height="33" Margin="10 0 0 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" KeyDown="txt_itemcd_KeyDown"/>
+            <Button x:Name="btn_search"  Margin="20,0,0,0" Height="28" Width="100" FontSize="12"  Foreground="White" 
+                    VerticalContentAlignment="Center"
+                    BorderBrush="{x:Null}"
+                        Background="#28abb9"                        
+                        FontWeight="ExtraBold" Click="btn_search_Click" KeyDown="btn_search_KeyDown">
+                <Grid Width="100" Height="28" Margin="-15">
+                    <materialDesign:PackIcon Kind="Search" VerticalAlignment="Center"  FontWeight="Bold" Width="35" Grid.Row="0" Margin="-5,0,0,0" Height="24" />
+                    <TextBlock Text="SEARCH" Margin="0,4,10,4" HorizontalAlignment="Right" Width="58" RenderTransformOrigin="-0.067,0.523" />
+                </Grid>
+            </Button>
+            <Button x:Name="btn_save"  Margin="20,0,0,0" Height="28" Width="100" FontSize="12"  Foreground="White" 
+                    VerticalContentAlignment="Center"
+                    BorderBrush="{x:Null}"
+                        Background="#28abb9"                        
+                        FontWeight="ExtraBold" Click="btn_save_Click" KeyDown="btn_save_KeyDown">
+                <Grid Width="100" Height="28" Margin="-15">
+                    <materialDesign:PackIcon Kind="ContentSaveAll" VerticalAlignment="Center"  FontWeight="Bold" Width="35" Grid.Row="0" Margin="0,0,0,0" Height="24" />
+                    <TextBlock Text="SAVE" Margin="10,0,0,4" HorizontalAlignment="Right" Width="58"  VerticalAlignment="Center"/>
+                </Grid>
+            </Button>
+            <Button x:Name="btn_close"  Margin="20,0,0,0" Height="28" Width="100" FontSize="12"  Foreground="White" 
+                    VerticalContentAlignment="Center"
+                    BorderBrush="{x:Null}"
+                        Background="#28abb9"                        
+                        FontWeight="ExtraBold" KeyDown="btn_close_KeyDown" Click="btn_close_Click">
+                <Grid Width="100" Height="28" Margin="-15">
+                    <materialDesign:PackIcon Kind="CloseBoxes" VerticalAlignment="Center"  FontWeight="Bold" Width="35" Grid.Row="0" Margin="0,0,0,0" Height="24" />
+                    <TextBlock Text="CLOSE" Margin="10,0,0,4" HorizontalAlignment="Right" Width="58"  VerticalAlignment="Center"/>
+                </Grid>
+            </Button>
+        </StackPanel>
+        <Border Grid.Row="2" Grid.Column="0" BorderBrush="#28abb9" BorderThickness="2">
+            <DockPanel Grid.Row="2" Grid.Column="0">
+                <DataGrid Name="grdItemList" AutoGenerateColumns="False" AllowDrop="False" CanUserAddRows="False" 
+                                 Margin="0 0 0 0" FontSize="12" FrozenColumnCount="1" VerticalScrollBarVisibility="Auto" ColumnHeaderHeight="35" MinRowHeight="10"
+                      MinColumnWidth="15" HorizontalScrollBarVisibility="Auto"
+                          VerticalGridLinesBrush="#28abb9" HorizontalGridLinesBrush="#28abb9"
+                                  CanUserDeleteRows="False" IsReadOnly="True"
+                       VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  VerticalAlignment="Top" GridLinesVisibility="All" CanUserReorderColumns="False" CanUserResizeColumns="False" MouseDoubleClick="grdItemList_MouseDoubleClick"  >
+                    <DataGrid.Columns >
+                        <DataGridTextColumn Binding="{Binding ItemCD}"  Header="ItemCD" Width="0.7*" Visibility="Visible" />
+                        <DataGridTextColumn Binding="{Binding PurPrice}"  Header="Price" Width="0.7*" Visibility="Hidden" />
+                        <DataGridTextColumn Binding="{Binding ShortCode}"  Header="ShortCode" Width="0.5*" Visibility="Visible" />
+                        <DataGridTextColumn Binding="{Binding ItemName}" Width="1*" Header="Name"/>
+                        <DataGridTextColumn Binding="{Binding UnitName}" Width="0.5*" Header="Unit"/>
+                        <DataGridTextColumn Binding="{Binding Qty}" Width="0.5*" Header="Qty" Visibility="Hidden"/>
+                        <DataGridTextColumn Binding="{Binding UnitCD}" Width="1*" Header="UnitCD" Visibility="Hidden"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+
+            </DockPanel>
+        </Border>
+        <Border Grid.Row="2" Grid.Column="1" BorderBrush="#28abb9" BorderThickness="0 2 2 2" Margin="0,0,0,0">
+            <DataGrid Name="grdOrderList" AutoGenerateColumns="False" AllowDrop="False" CanUserAddRows="False" 
+                                 Margin="0 0 0 0" FontSize="12" FrozenColumnCount="1" VerticalScrollBarVisibility="Auto" ColumnHeaderHeight="35" MinRowHeight="10"
+                      MinColumnWidth="15" HorizontalScrollBarVisibility="Auto"
+                          VerticalGridLinesBrush="#28abb9" HorizontalGridLinesBrush="#28abb9"
+                                  CanUserDeleteRows="False" IsReadOnly="True"
+                       VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  VerticalAlignment="Top" GridLinesVisibility="All" CanUserReorderColumns="False" CanUserResizeColumns="False" >
+                <DataGrid.Columns >
+                    <DataGridTextColumn Binding="{Binding ItemCD}"  Header="ItemCD" Width="0.3*" Visibility="Hidden" />
+                    <DataGridTextColumn Binding="{Binding PurDetailCD}"  Header="PurDetailCD" Width="0.3*" Visibility="Hidden" />
+                    <DataGridTextColumn Binding="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Converter={local:RowToIndexConverter}}" />
+                    <DataGridTextColumn Binding="{Binding ItemName}" Width="1*" Header="Name"/>
+                    <DataGridTextColumn Binding="{Binding UnitCD}" Width="1*" Header="UnitCD" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding UnitName}" Width="0.4*" Header="Unit" Visibility="Visible"/>
+                    <DataGridTextColumn Binding="{Binding Qty}" Width="0.4*" Header="QTY" Visibility="Visible"/>
+                    <DataGridTextColumn Binding="{Binding Price}" Width="0.5*" Header="Price" Visibility="Visible"/>
+                    <DataGridTextColumn Binding="{Binding Amount}" Width="0.5*" Header="Amount" Visibility="Visible"/>
+                    <DataGridTextColumn Binding="{Binding DiscountAmt}" Width="0.5*" Header="DiscountAmt" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding TotalAmount}" Width="0.5*" Header="TotalAmount" Visibility="Hidden"/>
+                    <DataGridTextColumn Binding="{Binding DiscountPer}" Width="0.5*" Header="DiscountPer" Visibility="Hidden"/>
+                    <DataGridTemplateColumn Header="Update" Width="0.5*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btn_update"  Height="20" Width="45" FontSize="8" Background="#827397" Click="btn_update_Click">UP</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Delete" Width="0.5*">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button x:Name="btn_delete" HorizontalContentAlignment="Center" Background="#827397" Height="20" Width="45" FontSize="8" Click="btn_delete_Click">
+                                    DEL
+                                </Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+
+                </DataGrid.Columns>
+            </DataGrid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="0" BorderBrush="#28abb9" BorderThickness="2 0 2 2">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="220"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Choose Supplier" Grid.Row="0" Grid.Column="1" />
+                <Label Content=":" Grid.Row="0" Grid.Column="2"/>
+                <ComboBox x:Name="cb_supplier" Grid.Row="0" Grid.Column="3" Margin="5" KeyDown="cb_supplier_KeyDown" BorderThickness="1"/>
+                <Label Content="Choose Date" Grid.Row="1" Grid.Column="1"/>
+                <Label Content=":" Grid.Row="1" Grid.Column="2"/>
+                <DatePicker Name="date" Grid.Row="1" Grid.Column="3" Margin="5" BorderBrush="#28abb9" BorderThickness="1" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+        <Border Grid.Row="3" Grid.Column="1" BorderBrush="#28abb9" BorderThickness="0 0 2 2" Margin="0 0 5 0">
+            <Grid Margin="0 0 5 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="40"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="5"/>
+                </Grid.ColumnDefinitions>
+                <Label Content="Total Amount" Grid.Row="0" Grid.Column="1" />
+                <Label Content=":" Grid.Row="0" Grid.Column="2"/>
+                <TextBox x:Name="txt_totalamount" Grid.Row="0" Grid.Column="3" Margin="5" BorderBrush="#28abb9" BorderThickness="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+                <Label Content="Discount Amount" Grid.Row="1" Grid.Column="1"/>
+                <Label Content=":" Grid.Row="1" Grid.Column="2"/>
+                <TextBox Name="txt_discount" Grid.Row="1" Grid.Column="3" Margin="5" BorderBrush="#28abb9" BorderThickness="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" KeyDown="txt_discount_KeyDown"/>
+                <Label Content="Tax Amount" Grid.Row="2" Grid.Column="1"/>
+                <Label Content=":" Grid.Row="2" Grid.Column="2"/>
+                <TextBox Name="txt_tax" Grid.Row="2" Grid.Column="3" Margin="5" BorderBrush="#28abb9" BorderThickness="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" KeyDown="txt_tax_KeyDown"/>
+                <Label Content="Amount" Grid.Row="3" Grid.Column="1"/>
+                <Label Content=":" Grid.Row="3" Grid.Column="2"/>
+                <TextBox Name="txt_amount" Grid.Row="3" Grid.Column="3" Margin="5" BorderBrush="#28abb9" BorderThickness="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
+            </Grid>
+        </Border>
+    </Grid>
+</Window>

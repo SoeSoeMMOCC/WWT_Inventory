@@ -1,0 +1,102 @@
+﻿<Window x:Class="WWT_Inventory.View.Inventory.InventoryItemAdd"
+       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:local="clr-namespace:WWT_Inventory.Model.Inventory"
+        mc:Ignorable="d"
+         WindowStartupLocation="CenterScreen"
+        Title="WWT - ADD NEW ITEM" Height="350" Width="650" ResizeMode="NoResize" Loaded="Window_Loaded" MouseDown="Window_MouseDown">
+    <Window.Resources>
+        <Style TargetType="TextBox">
+            
+        </Style>
+        <Style TargetType="ComboBox">
+            <Setter Property="BorderBrush" Value="#28abb9" />
+        </Style>
+        <Style TargetType="Label">
+            <Setter Property="Foreground" Value="#28abb9"/>
+            <Setter Property="FontWeight" Value="Bold"/>
+        </Style>
+    </Window.Resources>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Background="#FFF1EDED" Grid.Row="0" Grid.RowSpan="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+                <ColumnDefinition Width="95"></ColumnDefinition>
+                <ColumnDefinition Width="15"></ColumnDefinition>
+                <ColumnDefinition Width="160"></ColumnDefinition>
+                <ColumnDefinition Width="10"></ColumnDefinition>
+                <ColumnDefinition Width="95"></ColumnDefinition>
+                <ColumnDefinition Width="15"></ColumnDefinition>
+                <ColumnDefinition Width="160"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="28"/>
+                <RowDefinition Height="28"/>
+                <RowDefinition Height="28"/>
+                <RowDefinition Height="28"/>
+                <RowDefinition Height="28"/>
+
+            </Grid.RowDefinitions>
+            <Label Content="Item Information" FontWeight="Bold" FontSize="25" Grid.Row="0" Grid.ColumnSpan="4"/>
+            <Label Grid.Row="1" Grid.Column="1" FontWeight="Bold">Item Name</Label>
+            <Label Grid.Row="1" Grid.Column="5" FontWeight="Bold">Short Code</Label>
+            <Label Grid.Row="2" Grid.Column="1" FontWeight="Bold">Category</Label>
+            <Label Grid.Row="3" Grid.Column="1" FontWeight="Bold">MinQty</Label>
+            <Label Grid.Row="4" Grid.Column="1" FontWeight="Bold">Purchase Price</Label>
+            <Label Grid.Row="5" Grid.Column="1" FontWeight="Bold">Supplier</Label>
+            <Label Grid.Row="2" Grid.Column="5" FontWeight="Bold">Sub Category</Label>
+            <Label Grid.Row="3" Grid.Column="5" FontWeight="Bold">Max Qty</Label>
+            <Label Grid.Row="1" Grid.Column="2" FontWeight="Bold">:</Label>
+            <Label Grid.Row="3" Grid.Column="2" FontWeight="Bold">:</Label>
+            <Label Grid.Row="2" Grid.Column="2" FontWeight="Bold">:</Label>
+            <Label Grid.Row="4" Grid.Column="2" FontWeight="Bold">:</Label>
+            <Label Grid.Row="2" Grid.Column="6" FontWeight="Bold">:</Label>
+            <Label Grid.Row="5" Grid.Column="2" FontWeight="Bold">:</Label>
+            <Label Grid.Row="5" Grid.Column="6" FontWeight="Bold">:</Label>
+            <Label Grid.Row="3" Grid.Column="6" FontWeight="Bold">:</Label>
+
+            <TextBox x:Name="txt_name" Grid.Row="1" Grid.Column="3" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="txt_name_KeyDown"/>
+            <TextBox x:Name="txt_shortcode" Grid.Row="1" Grid.Column="7" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="txt_shortcode_KeyDown"/>
+            <ComboBox x:Name="cb_category" Grid.Row="2" Grid.Column="3" Margin="5 0 5 5" KeyDown="cb_category_KeyDown" SelectionChanged="cb_category_SelectionChanged"  />
+            <TextBox x:Name="txt_minqty" Grid.Row="3" Grid.Column="3" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="txt_minqty_KeyDown" />
+            <TextBox x:Name="txt_maxqty" Grid.Row="3" Grid.Column="7" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="txt_maxqty_KeyDown" />
+            <TextBox x:Name="txt_purprice" Grid.Row="4" Grid.Column="3" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="txt_purprice_KeyDown"/>
+            <ComboBox x:Name="cb_supplier" Grid.Row="5" Grid.Column="3" Margin="5 0 5 5" KeyDown="cb_supplier_KeyDown" />
+            <ComboBox x:Name="cb_subcategory" Grid.Row="2" Grid.Column="7" Margin="5 0 5 5" KeyDown="cb_subcategory_KeyDown" />
+            <Label Grid.Row="5" Grid.Column="5" FontWeight="Bold">Base Unit</Label>
+            <Label Grid.Row="4" Grid.Column="5" FontWeight="Bold">Selling Price</Label>
+            <!--<Label Grid.Row="5" Grid.Column="5" FontWeight="Bold">Vendor</Label>-->
+            <Label Grid.Row="1" Grid.Column="6" FontWeight="Bold">:</Label>
+            <Label Grid.Row="4" Grid.Column="6" FontWeight="Bold">:</Label>
+            <!--<Label Grid.Row="5" Grid.Column="6" FontWeight="Bold">:</Label>-->
+            <ComboBox x:Name="cb_unit" Grid.Row="5" Grid.Column="7" Margin="5 0 5 5" KeyDown="cb_unit_KeyDown" />
+            <TextBox x:Name="txt_sellingprice" Grid.Row="4" Grid.Column="7" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="txt_sellingprice_KeyDown" />
+            <!--<ComboBox x:Name="cb_vendor" Grid.Row="5" Grid.Column="7" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="cb_vendor_KeyDown"/>-->
+        </Grid>
+        <Grid Grid.Row="1"  Background="#FFF1EDED">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="btn_delete" Foreground="White"  Grid.Column="1" Click="btn_delete_Click" BorderBrush="{x:Null}" Content="CANCEL"
+                        Background="#28abb9" Width="90" Height="28"                      
+                        FontWeight="ExtraBold" KeyDown="btn_delete_KeyDown">
+               
+            </Button>
+            <Button x:Name="btn_save" Grid.Column="0" Width="90" Height="28" Click="btn_save_Click" BorderBrush="{x:Null}" Foreground="White" Content="SAVE"
+                        Background="#28abb9"                        
+                        FontWeight="ExtraBold"  KeyDown="btn_save_KeyDown" >
+                
+            </Button>
+        </Grid>
+    </Grid>
+</Window>

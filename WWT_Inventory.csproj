@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{446FF3E1-8EB9-4013-9890-AD945CE8F2BD}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>WWT_Inventory</RootNamespace>
+    <AssemblyName>WWT_Inventory</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Accessibility" />
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\Dapper.Contrib.2.0.78\lib\net461\Dapper.Contrib.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>packages\ExcelDataReader.3.6.0\lib\net45\ExcelDataReader.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelDataReader.DataSet, Version=3.6.0.0, Culture=neutral, PublicKeyToken=93517dbe6a4012fa, processorArchitecture=MSIL">
+      <HintPath>packages\ExcelDataReader.DataSet.3.6.0\lib\net35\ExcelDataReader.DataSet.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignColors, Version=2.0.3.2, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignColors.2.0.3\lib\net452\MaterialDesignColors.dll</HintPath>
+    </Reference>
+    <Reference Include="MaterialDesignThemes.Wpf, Version=4.2.1.2, Culture=neutral, PublicKeyToken=df2a72020bd7962a, processorArchitecture=MSIL">
+      <HintPath>packages\MaterialDesignThemes.4.2.1\lib\net452\MaterialDesignThemes.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Office.Interop.Excel.15.0.4795.1000\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.Common.10.0.40219.1\lib\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.WebForms.10.0.40219.1\lib\Microsoft.ReportViewer.WebForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportViewer.WinForms.10.0.40219.1\lib\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Office, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>packages\MicrosoftOfficeCore.15.0.0\lib\net35\Office.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Controller\Inventory\InventoryController.cs" />
+    <Compile Include="Controller\Purchase\PurchaseController.cs" />
+    <Compile Include="Controller\Report\InventoryReportsController.cs" />
+    <Compile Include="Controller\Sale\SaleController.cs" />
+    <Compile Include="Controller\UserController.cs" />
+    <Compile Include="Factory\CommonFactory.cs" />
+    <Compile Include="Model\HeaderClass.cs" />
+    <Compile Include="Model\Inventory\Category.cs" />
+    <Compile Include="Model\Inventory\City.cs" />
+    <Compile Include="Model\Inventory\ItemUnit.cs" />
+    <Compile Include="Model\Inventory\Stock.cs" />
+    <Compile Include="Model\Inventory\SubCategory.cs" />
+    <Compile Include="Model\Inventory\Supplier.cs" />
+    <Compile Include="Model\Inventory\Unit.cs" />
+    <Compile Include="Model\Purchase\PurchaseInvoiceDetail.cs" />
+    <Compile Include="Model\Purchase\PurchaseInvoiceDetail1.cs" />
+    <Compile Include="Model\Purchase\PurchaseInvoiceHdr.cs" />
+    <Compile Include="Model\Purchase\PurchaseOrderDetail.cs" />
+    <Compile Include="Model\Purchase\PurchaseOrderHdr.cs" />
+    <Compile Include="Model\Reports\ItemUnitSummary.cs" />
+    <Compile Include="Model\Reports\RemainStock.cs" />
+    <Compile Include="Model\Reports\SaleDetailSummary.cs" />
+    <Compile Include="Model\Reports\SalePurchaseHistory.cs" />
+    <Compile Include="Model\Sale\Customer.cs" />
+    <Compile Include="Model\Sale\SaleInvoiceDetail.cs" />
+    <Compile Include="Model\Sale\SaleInvoiceHdr.cs" />
+    <Compile Include="Model\Sale\SaleOrderDetail.cs" />
+    <Compile Include="Model\Sale\SaleOrderHdr.cs" />
+    <Compile Include="Model\Sale\SaleTypes.cs" />
+    <Compile Include="Service\Purchase\PurchaseInterface.cs" />
+    <Compile Include="Service\Report\InventoryReportsInterface.cs" />
+    <Compile Include="Service\Sale\SaleInterface.cs" />
+    <Compile Include="View\Inventory\InventoryCategoryAdd.xaml.cs">
+      <DependentUpon>InventoryCategoryAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Inventory\InventoryItemAdd.xaml.cs">
+      <DependentUpon>InventoryItemAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Inventory\Item.cs" />
+    <Compile Include="Service\Inventory\InventoryInterface.cs" />
+    <Compile Include="Service\UserInterface.cs" />
+    <Compile Include="View\Inventory\InventoryItemFilter.xaml.cs">
+      <DependentUpon>InventoryItemFilter.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Inventory\InventoryItemImportView.xaml.cs">
+      <DependentUpon>InventoryItemImportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Inventory\InventoryItemUnitPriceAdd.xaml.cs">
+      <DependentUpon>InventoryItemUnitPriceAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Inventory\InventorySubCategoryAdd.xaml.cs">
+      <DependentUpon>InventorySubCategoryAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Inventory\InventoryUnitAdd.xaml.cs">
+      <DependentUpon>InventoryUnitAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Inventory\ItemInfoView.xaml.cs">
+      <DependentUpon>ItemInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Purchase\PurchaseInfoView.xaml.cs">
+      <DependentUpon>PurchaseInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Purchase\PurchaseOrderAddView.xaml.cs">
+      <DependentUpon>PurchaseOrderAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Purchase\PurchaseOrderItem.xaml.cs">
+      <DependentUpon>PurchaseOrderItem.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Purchase\PurchaseSupplierAdd.xaml.cs">
+      <DependentUpon>PurchaseSupplierAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Purchase\ReportViews\PurchaseInvoiceViewer.xaml.cs">
+      <DependentUpon>PurchaseInvoiceViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Purchase\RowToIndexConverter.cs" />
+    <Compile Include="View\Report\ItemUnitSummaryReportView.xaml.cs">
+      <DependentUpon>ItemUnitSummaryReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\RemainStockQtyReportView.xaml.cs">
+      <DependentUpon>RemainStockQtyReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\ReportListView.xaml.cs">
+      <DependentUpon>ReportListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\SaleDetailSummaryReportView.xaml.cs">
+      <DependentUpon>SaleDetailSummaryReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Report\SalePurchaseHistoryReportView.xaml.cs">
+      <DependentUpon>SalePurchaseHistoryReportView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sale\ReportViews\SaleInvoiceViewer.xaml.cs">
+      <DependentUpon>SaleInvoiceViewer.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sale\SaleCustomerAdd.xaml.cs">
+      <DependentUpon>SaleCustomerAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sale\SaleInfoView.xaml.cs">
+      <DependentUpon>SaleInfoView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sale\SaleOrderAddView.xaml.cs">
+      <DependentUpon>SaleOrderAddView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="View\Sale\SaleOrderItem.xaml.cs">
+      <DependentUpon>SaleOrderItem.xaml</DependentUpon>
+    </Compile>
+    <Page Include="Dashboard.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Login.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MainWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dashboard.xaml.cs">
+      <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Factory\DBFactory.cs" />
+    <Compile Include="Login.xaml.cs">
+      <DependentUpon>Login.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.xaml.cs">
+      <DependentUpon>MainWindow.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Page Include="ResourceDirectoryMargins.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Inventory\InventoryCategoryAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Inventory\InventoryItemAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Inventory\InventoryItemFilter.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Inventory\InventoryItemImportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Inventory\InventoryItemUnitPriceAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Inventory\InventorySubCategoryAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Inventory\InventoryUnitAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Inventory\ItemInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Purchase\PurchaseInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Purchase\PurchaseOrderAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Purchase\PurchaseOrderItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Purchase\PurchaseSupplierAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Purchase\ReportViews\PurchaseInvoiceViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Report\ItemUnitSummaryReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Report\RemainStockQtyReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Report\ReportListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Report\SaleDetailSummaryReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Report\SalePurchaseHistoryReportView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sale\ReportViews\SaleInvoiceViewer.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sale\SaleCustomerAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sale\SaleInfoView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sale\SaleOrderAddView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Sale\SaleOrderItem.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Model\User.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ReportPreviews\InventoryReports\InventoryItemUnitSummaryRpt.rdlc" />
+    <EmbeddedResource Include="ReportPreviews\InventoryReports\InventoryStockRemainRpt.rdlc" />
+    <EmbeddedResource Include="ReportPreviews\InventoryReports\SaleDetailSummaryRpt.rdlc" />
+    <EmbeddedResource Include="ReportPreviews\InventoryReports\SalePurchaseHistoryRpt.rdlc" />
+    <EmbeddedResource Include="ReportPreviews\PurchaseInvoicePreview.rdlc" />
+    <EmbeddedResource Include="ReportPreviews\SaleInvoicePreview.rdlc" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\WWT_Inventory.Model.HeaderClass.datasource" />
+    <None Include="Properties\DataSources\WWT_Inventory.Model.Purchase.PurchaseInvoiceDetail.datasource" />
+    <None Include="Properties\DataSources\WWT_Inventory.Model.Purchase.PurchaseInvoiceDetail1.datasource" />
+    <None Include="Properties\DataSources\WWT_Inventory.Model.Purchase.PurchaseInvoiceHdr.datasource" />
+    <None Include="Properties\DataSources\WWT_Inventory.Model.Reports.ItemUnitSummary.datasource" />
+    <None Include="Properties\DataSources\WWT_Inventory.Model.Reports.RemainStock.datasource" />
+    <None Include="Properties\DataSources\WWT_Inventory.Model.Reports.SaleDetailSummary.datasource" />
+    <None Include="Properties\DataSources\WWT_Inventory.Model.Reports.SalePurchaseHistory.datasource" />
+    <None Include="Properties\DataSources\WWT_Inventory.Model.Sale.SaleInvoiceDetail.datasource" />
+    <None Include="Properties\DataSources\WWT_Inventory.Model.Sale.SaleInvoiceHdr.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\home.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Assets\Inventory3.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Import Project="packages\MaterialDesignThemes.4.2.1\build\MaterialDesignThemes.targets" Condition="Exists('packages\MaterialDesignThemes.4.2.1\build\MaterialDesignThemes.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\MaterialDesignThemes.4.2.1\build\MaterialDesignThemes.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\MaterialDesignThemes.4.2.1\build\MaterialDesignThemes.targets'))" />
+  </Target>
+</Project>
