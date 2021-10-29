@@ -41,14 +41,18 @@
                         <DataGridTemplateColumn Header="Update" Width="0.5*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Click="UpdateButton_Click"  Height="20" Width="45" FontSize="8" Background="#827397">UP</Button>
+                                    <Button Click="UpdateButton_Click"  Height="20" 
+                                            Foreground="White"
+                                            Width="45" FontSize="8" Background="#827397">UP</Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTemplateColumn Header="Delete" Width="0.5*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Click="DeleteButton_Click" HorizontalContentAlignment="Center" Background="#827397" Height="20" Width="45" FontSize="8">
+                                    <Button Click="DeleteButton_Click" 
+                                            Foreground="White"
+                                            HorizontalContentAlignment="Center" Background="#827397" Height="20" Width="45" FontSize="8">
                                         DEL
                                     </Button>
                                 </DataTemplate>

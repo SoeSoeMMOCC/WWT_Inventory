@@ -143,7 +143,9 @@
                         <DataGridTemplateColumn Header="View" Width="0.5*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Height="20" Width="50" FontSize="8" Background="#827397" Click="Button_Click">View</Button>
+                                    <Button Height="20" Width="50" FontSize="8" 
+                                            Foreground="White"
+                                            Background="#827397" Click="Button_Click">View</Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>

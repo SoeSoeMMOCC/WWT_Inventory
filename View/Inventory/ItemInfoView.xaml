@@ -183,14 +183,14 @@
                         <DataGridTemplateColumn Header="Update" Width="0.4*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Click="UpdateButton_Click" Height="20" Width="60" FontSize="8" Background="#827397">Update</Button>
+                                    <Button Click="UpdateButton_Click" Height="20" Width="60" FontSize="8" Background="#827397" Foreground="White">Update</Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
                         <DataGridTemplateColumn Header="Delete" Width="0.4*">
                             <DataGridTemplateColumn.CellTemplate>
                                 <DataTemplate>
-                                    <Button Click="Button_Click" Background="#827397" Height="20" Width="60" FontSize="8">Delete</Button>
+                                    <Button Click="Button_Click" Background="#827397" Height="20" Width="60" FontSize="8" Foreground="White">Delete</Button>
                                 </DataTemplate>
                             </DataGridTemplateColumn.CellTemplate>
                         </DataGridTemplateColumn>
