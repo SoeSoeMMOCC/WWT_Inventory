@@ -13,5 +13,6 @@ namespace WWT_Inventory.Model
         public string UserPassword { get; set; }
         public bool isactive { get; set; }
         public DateTime ts { get; set; }
+        public string role { get; set; }
     }
 }

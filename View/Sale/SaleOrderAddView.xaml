@@ -8,7 +8,7 @@
         xmlns:pur ="clr-namespace:WWT_Inventory.View.Purchase"
          mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="WWT - ADD SALE ORDER INFORMATION" Height="700" Width="1200" ResizeMode="NoResize" 
-        Loaded="Window_Loaded" WindowState="Maximized">
+        Loaded="Window_Loaded" Background="#827397">
     <Window.Resources>
         <Style TargetType="TextBox">
             <Setter Property="BorderBrush" Value="#28abb9"/>
@@ -17,7 +17,7 @@
             <Setter Property="BorderBrush" Value="#28abb9" />
         </Style>
         <Style TargetType="Label">
-            <Setter Property="Foreground" Value="#28abb9"/>
+            <Setter Property="Foreground" Value="White"/>
             <Setter Property="FontWeight" Value="Bold"/>
             <Setter Property="FontSize" Value="16"/>
         </Style>
@@ -71,7 +71,7 @@
                 </Grid>
             </Button>
         </StackPanel>
-        <Border Grid.Row="2" Grid.Column="0" BorderBrush="#28abb9" BorderThickness="1">
+        <Border Grid.Row="2" Grid.Column="0" BorderBrush="#28abb9" Background="#FFF1EDED"  BorderThickness="1">
             <DockPanel Grid.Row="2" Grid.Column="0">
                 <DataGrid Name="grdItemList" AutoGenerateColumns="False" AllowDrop="False" CanUserAddRows="False" 
                                  Margin="0 0 0 0" FontSize="12" FrozenColumnCount="1" VerticalScrollBarVisibility="Auto" ColumnHeaderHeight="35" MinRowHeight="10"
@@ -93,7 +93,7 @@
 
             </DockPanel>
         </Border>
-        <Border Grid.Row="2" Grid.Column="1" BorderBrush="#28abb9" BorderThickness="0 1 1 1" Margin="0,0,0,0">
+        <Border Grid.Row="2" Grid.Column="1" BorderBrush="#28abb9" Background="#FFF1EDED" BorderThickness="0 1 1 1" Margin="0,0,0,0">
             <DataGrid Name="grdOrderList" AutoGenerateColumns="False" AllowDrop="False" CanUserAddRows="False" 
                                  Margin="0 0 0 0" FontSize="12" FrozenColumnCount="1" VerticalScrollBarVisibility="Auto" ColumnHeaderHeight="35" MinRowHeight="10"
                       MinColumnWidth="15" HorizontalScrollBarVisibility="Auto"

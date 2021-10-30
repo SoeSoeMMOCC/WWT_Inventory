@@ -1,5 +1,7 @@
-﻿using System;
+﻿using MaterialDesignThemes.Wpf;
+using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -39,7 +41,16 @@ namespace WWT_Inventory
             loginView.ShowDialog();
             if (loginView.status)
             {
-                this.Show();
+                if (loginView.role == ConfigurationManager.AppSettings.Get("AdminRole"))
+                    this.Show();
+                else if (loginView.role == ConfigurationManager.AppSettings.Get("SaleRole"))
+                {
+                    SaleOrderAddView saleOrder = new SaleOrderAddView();
+                    saleOrder.ShowDialog();
+                    Application.Current.Shutdown();
+                }
+                    
+
             }
         }
         private void gridHeader_MouseDown(object sender, MouseButtonEventArgs e)

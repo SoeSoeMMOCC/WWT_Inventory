@@ -23,6 +23,7 @@ namespace WWT_Inventory
     public partial class Login : Window
     {
         public bool status = true;
+        public string role = "";
         private  UserInterface userInterface;
         UserController userController = new UserController();
         string error = "";
@@ -57,6 +58,7 @@ namespace WWT_Inventory
             {
                 MessageBox.Show("Welcome, to WWT Inventory System", "Welcome", MessageBoxButton.OK, MessageBoxImage.Information);
                 status = true;
+                role = user.role;
             }
             else
             {
