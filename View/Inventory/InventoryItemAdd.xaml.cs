@@ -112,6 +112,7 @@ namespace WWT_Inventory.View.Inventory
             cb_category.DisplayMemberPath = "CategoryName";
             cb_category.SelectedIndex = categories.FindIndex(x=>x.CategoryCD==CommonFactory.updateItem.CategoryCD);
 
+            cb_subcategory.SelectedIndex = subCategories.FindIndex(x => x.SubCategoryCD == CommonFactory.updateItem.SubCategoryCD);
         }
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -151,14 +152,15 @@ namespace WWT_Inventory.View.Inventory
                 cb_subcategory.ItemsSource = subCategories;
                 cb_subcategory.SelectedValuePath = "SubCategoryCD";
                 cb_subcategory.DisplayMemberPath = "SubCategoryName";
-                if (CommonFactory.isNew == false)
-                {
-                    cb_subcategory.SelectedIndex = subCategories.FindIndex(x => x.SubCategoryCD == CommonFactory.updateItem.SubCategoryCD);
-                }
-                else
-                {
-                    cb_subcategory.SelectedIndex =0;
-                }
+                cb_subcategory.SelectedIndex = 0;
+                //if (CommonFactory.isNew == false)
+                //{
+                //    cb_subcategory.SelectedIndex = subCategories.FindIndex(x => x.SubCategoryCD == CommonFactory.updateItem.SubCategoryCD);
+                //}
+                //else
+                //{
+                //    cb_subcategory.SelectedIndex =0;
+                //}
                 
             }
         }

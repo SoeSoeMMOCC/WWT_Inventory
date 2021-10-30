@@ -101,7 +101,7 @@ namespace WWT_Inventory.View.Report
             //thirpt_salepurchasehistoryin.ZoomMode = ZoomMode.Percent;
             //thirpt_salepurchasehistoryin.ZoomPercent = 100;
             this.rpt_salepurchasehistory.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
-            //this.rpt_salepurchasehistory.ZoomMode = ZoomMode.FullPage;
+            this.rpt_salepurchasehistory.ZoomMode = ZoomMode.PageWidth;
             this.rpt_salepurchasehistory.RefreshReport();
         }
         private void btn_search_KeyDown(object sender, KeyEventArgs e)

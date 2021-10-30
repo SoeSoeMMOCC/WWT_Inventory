@@ -40,7 +40,7 @@
                     BorderBrush="{x:Null}"
                         Background="{x:Null}"    
                         HorizontalContentAlignment="Left"
-                        FontWeight="ExtraBold" Content="Sale Detail Summary Report Information">
+                        FontWeight="ExtraBold" Content="Sale/Purchase Summary Report Information">
                     </Button>
                 </StackPanel>
                 <StackPanel Grid.Row="1" Orientation="Horizontal"  >

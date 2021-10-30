@@ -39,13 +39,20 @@ namespace WWT_Inventory
         private void txt_name_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key==Key.Enter)
+            {
                 txt_password.Focus();
+                txt_password.SelectAll();
+            }
+                
         }
 
         private void txt_password_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
+            {
                 btn_Login.Focus();
+            }
+                
         }
 
         private void btn_Login_Click(object sender, RoutedEventArgs e)
@@ -54,17 +61,21 @@ namespace WWT_Inventory
             string UserName = txt_name.Text.ToString().Trim();
             string Password = txt_password.Password.ToString().Trim();
             User user = userController.GetLoginUser(UserName, Password, out error);
-            if (user.UserCD != null)
+            if (user != null)
             {
                 MessageBox.Show("Welcome, to WWT Inventory System", "Welcome", MessageBoxButton.OK, MessageBoxImage.Information);
                 status = true;
                 role = user.role;
+                this.Close();
             }
             else
             {
+                MessageBox.Show("Invalid Login!", "Try Again", MessageBoxButton.OK, MessageBoxImage.Error); ;
+                txt_name.Focus();
+                txt_name.SelectAll();
                 status = false;
             }
-            this.Close();
+            
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
