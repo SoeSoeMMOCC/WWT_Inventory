@@ -67,6 +67,7 @@ namespace WWT_Inventory.View.Purchase.ReportViews
             this.rpt_purchase.LocalReport.ReportEmbeddedResource = "WWT_Inventory.ReportPreviews.PurchaseInvoicePreview.rdlc";
             //this.rpt_purchase.ZoomMode = ZoomMode.FullPage;
             this.rpt_purchase.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+            this.rpt_purchase.ZoomMode = ZoomMode.PageWidth;
             this.rpt_purchase.RefreshReport();
         }
     }

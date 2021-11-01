@@ -66,6 +66,7 @@ namespace WWT_Inventory.View.Sale.ReportViews
             this.rpt_sale.LocalReport.ReportEmbeddedResource = "WWT_Inventory.ReportPreviews.SaleInvoicePreview.rdlc";
             //thirpt_salese.ZoomMode = ZoomMode.FullPage;
             this.rpt_sale.SetDisplayMode(Microsoft.Reporting.WinForms.DisplayMode.PrintLayout);
+            this.rpt_sale.ZoomMode = ZoomMode.PageWidth;
             this.rpt_sale.RefreshReport();
         }
     }

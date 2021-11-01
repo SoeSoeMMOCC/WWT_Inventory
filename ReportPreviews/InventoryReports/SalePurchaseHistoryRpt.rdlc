@@ -280,7 +280,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Remain Qty</Value>
+                              <Value>Amount</Value>
                               <Style>
                                 <FontFamily>Myanmar Text</FontFamily>
                               </Style>
@@ -576,7 +576,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!SaleAmount.Value</Value>
+                              <Value>=Fields!SaleAmount.Value - Fields!PurAmount.Value</Value>
                               <Style>
                                 <FontFamily>Myanmar Text</FontFamily>
                                 <FontSize>9pt</FontSize>
@@ -634,7 +634,7 @@
         <Top>0.025in</Top>
         <Left>0.27864in</Left>
         <Height>0.5in</Height>
-        <Width>6.875in</Width>
+        <Width>6.87497in</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -778,7 +778,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!SaleAmount.Value, "DataSet1")</Value>
+                <Value>=Sum(Fields!SaleAmount.Value, "DataSet1")-Sum(Fields!PurAmount.Value, "DataSet1")</Value>
                 <Style>
                   <FontFamily>Myanmar Text</FontFamily>
                   <FontSize>9pt</FontSize>
