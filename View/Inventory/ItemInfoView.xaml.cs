@@ -190,7 +190,7 @@ namespace WWT_Inventory.View.Inventory
                     grdItemLists.Columns[i - 1].Header.ToString() == "Supplier" || 
                     grdItemLists.Columns[i - 1].Header.ToString() == "SalePrice" || 
                     grdItemLists.Columns[i - 1].Header.ToString() == "PurPrice" || 
-                    grdItemLists.Columns[i - 1].Header.ToString() == "QTY")
+                    grdItemLists.Columns[i - 1].Header.ToString() == "Qty")
                 {
                     xcelApp.Cells[1, k] = grdItemLists.Columns[i - 1].Header;
                     xcelApp.Cells[1, k].Font.Bold = true;

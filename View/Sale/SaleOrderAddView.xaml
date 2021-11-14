@@ -154,7 +154,7 @@
                     <ColumnDefinition Width="220"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
-                <Label Content="Choose Supplier" Grid.Row="0" Grid.Column="1" />
+                <Label Content="Choose Customer" Grid.Row="0" Grid.Column="1" />
                 <Label Content=":" Grid.Row="0" Grid.Column="2"/>
                 <ComboBox x:Name="cb_customer" Grid.Row="0" Grid.Column="3" Margin="5"  BorderThickness="1"/>
                 <Label Content="Choose Date" Grid.Row="1" Grid.Column="1"/>
