@@ -70,11 +70,11 @@ namespace WWT_Inventory.View.Purchase
         /* Search Button Click */
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
-            fromDate = Convert.ToDateTime(from_date.SelectedDate.Value.ToShortDateString() + " 00:00:00");
-            toDate = Convert.ToDateTime(to_date.SelectedDate.Value.ToShortDateString() + " 23:59:59");
+            fromDate =(from_date.SelectedDate==null)? Convert.ToDateTime(DateTime.Now.ToShortDateString() + " 00:00:00") : Convert.ToDateTime(from_date.SelectedDate.Value.ToShortDateString() + " 00:00:00");
+            toDate = (to_date.SelectedDate == null) ? Convert.ToDateTime(DateTime.Now.ToShortDateString() + " 00:00:00") : Convert.ToDateTime(to_date.SelectedDate.Value.ToShortDateString() + " 23:59:59");
             string sup = (cb_supplier.SelectedValue == null) ? "%" : cb_supplier.SelectedValue.ToString();
             string id = (txt_purorder.Text.ToString().Trim() == "") ? "%" : txt_purorder.Text.ToString();
-            invoiceHdrs = purchaseController.getPurchaseInvoices(fromDate, toDate, "%", cb_supplier.SelectedValue.ToString(), out error);
+            invoiceHdrs = purchaseController.getPurchaseInvoices(fromDate, toDate, id, sup, out error);
             grdPurLists.ItemsSource = invoiceHdrs;
         }
         /* Add Purchase Button Click */

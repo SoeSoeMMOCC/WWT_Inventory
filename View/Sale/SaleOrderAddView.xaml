@@ -149,14 +149,17 @@
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
-                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="180"/>
                     <ColumnDefinition Width="20"/>
-                    <ColumnDefinition Width="220"/>
+                    <ColumnDefinition Width="220"/>                    
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Label Content="Choose Customer" Grid.Row="0" Grid.Column="1" />
                 <Label Content=":" Grid.Row="0" Grid.Column="2"/>
                 <ComboBox x:Name="cb_customer" Grid.Row="0" Grid.Column="3" Margin="5"  BorderThickness="1"/>
+                <Button x:Name="btn_add_cust" Grid.Row="0" Grid.Column="4" Width="30" 
+                        Background="#28abb9" Foreground="White"
+                        Height="30" Margin="0 0 2 0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Click="btn_add_cust_Click">+</Button>
                 <Label Content="Choose Date" Grid.Row="1" Grid.Column="1"/>
                 <Label Content=":" Grid.Row="1" Grid.Column="2"/>
                 <DatePicker Name="date" Grid.Row="1" Grid.Column="3" Margin="5" BorderBrush="#28abb9" BorderThickness="1" VerticalContentAlignment="Center"/>

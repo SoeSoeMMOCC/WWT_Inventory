@@ -71,7 +71,7 @@
                     VerticalContentAlignment="Center"
                     BorderBrush="{x:Null}" Content="CANCEL"
                         Background="#28abb9" Width="90" Height="28"                      
-                        FontWeight="ExtraBold">
+                        FontWeight="ExtraBold" Click="btn_cancel_Click">
 
             </Button>
             <Button x:Name="btn_search" Grid.Column="0" Width="90" Height="28" BorderBrush="{x:Null}" Foreground="White" Content="SEARCH"

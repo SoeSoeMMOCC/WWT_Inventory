@@ -26,6 +26,7 @@ namespace WWT_Inventory.View.Inventory
         List<Category> categories;
         List<SubCategory> subCategories;
         public string selCatCD, selSubCatCD, selItem, selShortCode;
+        public bool status = false;
         public InventoryItemFilter()
         {
             InitializeComponent();
@@ -79,7 +80,7 @@ namespace WWT_Inventory.View.Inventory
                 selItem = "%";
             if (selShortCode == "")
                 selShortCode = "%";
-
+            this.status = true;
             this.Close();
         }
 
@@ -93,6 +94,12 @@ namespace WWT_Inventory.View.Inventory
             {
                 btn_cancel.Focus();
             }
+        }
+
+        private void btn_cancel_Click(object sender, RoutedEventArgs e)
+        {
+            this.status = false;
+            this.Close();
         }
 
         private void cb_category_SelectionChanged(object sender, SelectionChangedEventArgs e)

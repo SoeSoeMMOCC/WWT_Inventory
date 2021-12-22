@@ -116,11 +116,11 @@ namespace WWT_Inventory.View.Sale
 
         private void btn_search_Click(object sender, RoutedEventArgs e)
         {
-            fromDate = Convert.ToDateTime(from_date.SelectedDate.Value.ToShortDateString() + " 00:00:00");
-            toDate = Convert.ToDateTime(to_date.SelectedDate.Value.ToShortDateString() + " 23:59:59");
-            string sup = (cb_customer.SelectedValue == null) ? "%" : cb_customer.SelectedValue.ToString();
+            fromDate = (from_date.SelectedDate == null) ? Convert.ToDateTime(DateTime.Now.ToShortDateString() + " 00:00:00") : Convert.ToDateTime(from_date.SelectedDate.Value.ToShortDateString() + " 00:00:00");
+            toDate = (to_date.SelectedDate == null) ? Convert.ToDateTime(DateTime.Now.ToShortDateString() + " 00:00:00") : Convert.ToDateTime(to_date.SelectedDate.Value.ToShortDateString() + " 23:59:59");
+            string cust = (cb_customer.SelectedValue == null) ? "%" : cb_customer.SelectedValue.ToString();
             string id = (txt_saleinvoice.Text.ToString().Trim() == "") ? "%" : txt_saleinvoice.Text.ToString();
-            saleInvoiceHdrs = saleController.GetSaleInvoices(fromDate, toDate, "%", cb_customer.SelectedValue.ToString(), out error);
+            saleInvoiceHdrs = saleController.GetSaleInvoices(fromDate, toDate, id, cust, out error);
             grdSaleList.ItemsSource = null;
             grdSaleList.ItemsSource = saleInvoiceHdrs;
         }

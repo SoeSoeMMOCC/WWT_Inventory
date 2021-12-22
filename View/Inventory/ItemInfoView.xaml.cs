@@ -155,8 +155,15 @@ namespace WWT_Inventory.View.Inventory
             InventoryItemFilter filter = new InventoryItemFilter();
             filter.ShowDialog();
             items = new List<Item>();
-            items = inventoryController.getInventoryItemFilterList(filter.selCatCD, 
-                filter.selSubCatCD, filter.selItem, filter.selShortCode, out error);
+            if (filter.status)
+            {
+                items = inventoryController.getInventoryItemFilterList(filter.selCatCD,
+                    filter.selSubCatCD, filter.selItem, filter.selShortCode, out error);
+            }
+            else
+            {
+                items = inventoryController.getInventoryItemList("%", "%", out error);
+            }
             grdItemLists.ItemsSource = null;
             grdItemLists.ItemsSource = items;
             
@@ -190,7 +197,7 @@ namespace WWT_Inventory.View.Inventory
                     grdItemLists.Columns[i - 1].Header.ToString() == "Supplier" || 
                     grdItemLists.Columns[i - 1].Header.ToString() == "SalePrice" || 
                     grdItemLists.Columns[i - 1].Header.ToString() == "PurPrice" || 
-                    grdItemLists.Columns[i - 1].Header.ToString() == "Qty")
+                    grdItemLists.Columns[i - 1].Header.ToString() == "QTY")
                 {
                     xcelApp.Cells[1, k] = grdItemLists.Columns[i - 1].Header;
                     xcelApp.Cells[1, k].Font.Bold = true;
@@ -212,10 +219,10 @@ namespace WWT_Inventory.View.Inventory
                 xcelApp.Cells[i + 2, 4] = itemlist[i].UnitName;
                 xcelApp.Cells[i + 2, 5] = itemlist[i].CategoryName;
                 xcelApp.Cells[i + 2, 6] = itemlist[i].SubCategoryName;
-                xcelApp.Cells[i + 2, 6] = itemlist[i].SupplierName;
-                xcelApp.Cells[i + 2, 7] = itemlist[i].SalePrice;
-                xcelApp.Cells[i + 2, 8] = itemlist[i].PurPrice;
-                xcelApp.Cells[i + 2, 9] = itemlist[i].Qty;
+                xcelApp.Cells[i + 2, 7] = itemlist[i].SupplierName;
+                xcelApp.Cells[i + 2, 8] = itemlist[i].SalePrice;
+                xcelApp.Cells[i + 2, 9] = itemlist[i].PurPrice;
+                xcelApp.Cells[i + 2, 10] = itemlist[i].Qty;
                 //}
             }
             xcelApp.Columns.AutoFit();

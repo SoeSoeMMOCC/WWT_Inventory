@@ -297,6 +297,18 @@ namespace WWT_Inventory.View.Sale
             }
         }
 
+        private void btn_add_cust_Click(object sender, RoutedEventArgs e)
+        {
+            SaleCustomerAdd customerAdd = new SaleCustomerAdd();
+            customerAdd.ShowDialog();
+            customers = saleController.GetCustomers("%", out error);
+            cb_customer.ItemsSource = null;
+            cb_customer.ItemsSource = customers;
+            cb_customer.SelectedValuePath = "CustCD";
+            cb_customer.DisplayMemberPath = "CustName";
+            cb_customer.SelectedIndex = 0;
+        }
+
         private void calculateAmount()
         {
             total = tax = discount = amount = 0;
