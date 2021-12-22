@@ -108,8 +108,16 @@ namespace WWT_Inventory.View.Inventory
 
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
+            if (txt_name.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Please Enter Category Name.", "Required Category Name.", MessageBoxButton.OK, MessageBoxImage.Error);
+                txt_name.Focus();
+                return;
+            }
+
             category.CategoryName = txt_name.Text.ToString().Trim();
             category.isactive = true;
+            
             if (CommonFactory.isNew)
             {
                 string N_CD = inventoryController.generateNoseries(WWT_Inventory.Properties.Settings.Default.DeviceID, "Category", out error);

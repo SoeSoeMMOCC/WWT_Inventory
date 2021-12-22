@@ -103,6 +103,12 @@ namespace WWT_Inventory.View.Inventory
 
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
+            if (txt_name.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Please Enter Unit Name.", "Required Unit Name.", MessageBoxButton.OK, MessageBoxImage.Error);
+                txt_name.Focus();
+                return;
+            }
             unit.UnitName = txt_name.Text.ToString().Trim();
             unit.isactive = true;
             if (CommonFactory.isNew)

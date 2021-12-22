@@ -234,6 +234,12 @@ namespace WWT_Inventory.View.Purchase
 
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
+            if(orderDetails.Count()<=0 || orderDetails == null)
+            {
+                MessageBox.Show("No Order Information.", "Invalid Order Count.", MessageBoxButton.OK, MessageBoxImage.Error);
+                cb_category.Focus();
+                return;
+            }
             string N_OrderCD = inventoryController.generateNoseries(WWT_Inventory.Properties.Settings.Default.DeviceID, "PurchaseOrder", out error);
             orderHdr.PurOrderCD = N_OrderCD;
             orderHdr.PurOrderDate = date.SelectedDate.Value;

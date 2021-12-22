@@ -57,9 +57,12 @@ namespace WWT_Inventory
 
         private void btn_Login_Click(object sender, RoutedEventArgs e)
         {
-            
-            string UserName = txt_name.Text.ToString().Trim();
-            string Password = txt_password.Password.ToString().Trim();
+
+            //string UserName = txt_name.Text.ToString().Trim();
+            //string Password = txt_password.Password.ToString().Trim();
+            /*For the Exact User Login Information -- Remove Trim() */
+            string UserName = txt_name.Text.ToString();
+            string Password = txt_password.Password.ToString();
             User user = userController.GetLoginUser(UserName, Password, out error);
             if (user != null)
             {

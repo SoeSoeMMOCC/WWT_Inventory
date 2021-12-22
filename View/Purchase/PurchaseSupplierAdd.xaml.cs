@@ -97,6 +97,12 @@ namespace WWT_Inventory.View.Purchase
 
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
+            if (txt_name.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Please Enter Supplier Name.", "Required Supplier Name.", MessageBoxButton.OK, MessageBoxImage.Error);
+                txt_name.Focus();
+                return;
+            }
             if (CommonFactory.isNew)
             {
                 string N_CD = inventoryController.generateNoseries(WWT_Inventory.Properties.Settings.Default.DeviceID, "Supplier", out error);

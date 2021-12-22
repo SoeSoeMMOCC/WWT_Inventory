@@ -4,8 +4,8 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:WWT_Inventory.View.Purchase"
-             mc:Ignorable="d" 
-             d:DesignHeight="600" d:DesignWidth="1000" Background="#827397" Loaded="UserControl_Loaded">
+             mc:Ignorable="d" Background="#FFF1EDED"
+             d:DesignHeight="600" d:DesignWidth="1000" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <Style TargetType="Label">
             <Setter Property="Foreground" Value="White" />
@@ -38,7 +38,7 @@
             <RowDefinition Height="120"></RowDefinition>
             <RowDefinition Height="*"></RowDefinition>
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0 0 0 10" Background="#827397">
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2" Margin="0 0 0 0" Background="#827397">
             <Grid>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*"/>
@@ -120,9 +120,11 @@
                 
             </StackPanel>
         </Grid>-->
-        <Border BorderBrush="#28abb9" BorderThickness="2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#FFF1EDED">
-            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#FFF1EDED">
-                <DataGrid Name="grdPurLists" AutoGenerateColumns="False" AllowDrop="False" CanUserAddRows="False" 
+        <!--<Border BorderBrush="#28abb9" BorderThickness="2"  Background="#FFF1EDED">
+            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                       Background="#FFF1EDED">-->
+                <DataGrid Name="grdPurLists" AutoGenerateColumns="False" AllowDrop="False" CanUserAddRows="False" BorderBrush="#28abb9" BorderThickness="2"
+                          Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
                                  Margin="0 0 0 0" FontSize="12" FrozenColumnCount="1" VerticalScrollBarVisibility="Auto" ColumnHeaderHeight="35" MinRowHeight="25" 
                       MinColumnWidth="15"
                           VerticalGridLinesBrush="#28abb9" HorizontalGridLinesBrush="#28abb9"
@@ -159,8 +161,8 @@
                     </DataGrid.Columns>
                 </DataGrid>
 
-            </DockPanel>
-        </Border>
+            <!--</DockPanel>
+        </Border>-->
 
 
 

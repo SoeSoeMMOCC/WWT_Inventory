@@ -119,6 +119,12 @@ namespace WWT_Inventory.View.Inventory
 
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
+            if (txt_name.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Please Enter SubCategory Name.", "Required SubCategory Name.", MessageBoxButton.OK, MessageBoxImage.Error);
+                txt_name.Focus();
+                return;
+            }
             subCategory.SubCategoryName = txt_name.Text.ToString().Trim();
             subCategory.CategoryCD = cb_category.SelectedValue.ToString();
             subCategory.isactive = true;

@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              xmlns:local="clr-namespace:WWT_Inventory.View.Inventory"
-             mc:Ignorable="d" 
+             mc:Ignorable="d" Background="#FFF1EDED" 
              d:DesignHeight="600" d:DesignWidth="1000" Loaded="UserControl_Loaded">
     <UserControl.Resources>
         <Style TargetType="TextBox">
@@ -154,11 +154,12 @@
                 
             </StackPanel>
         </Grid>-->
-        <Border BorderBrush="#28abb9" BorderThickness="2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">
-            <DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#FFF1EDED" >
-                <DataGrid Name="grdItemLists" AutoGenerateColumns="False" AllowDrop="False" CanUserAddRows="False" 
-                                 Margin="0 0 0 0" FontSize="12" FrozenColumnCount="1" VerticalScrollBarVisibility="Auto" ColumnHeaderHeight="35" MinRowHeight="25" 
+        <!--<Border BorderBrush="#28abb9" BorderThickness="2" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2">-->
+            <!--<DockPanel Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" Background="#FFF1EDED" >-->
+            <DataGrid Name="grdItemLists" AutoGenerateColumns="False" AllowDrop="False" CanUserAddRows="False" Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2"
+                                 Margin="0 0 0 0" FontSize="12" FrozenColumnCount="1" ScrollViewer.VerticalScrollBarVisibility="Auto" ColumnHeaderHeight="35" MinRowHeight="25" 
                       MinColumnWidth="15"
+                          ScrollViewer.HorizontalScrollBarVisibility="Auto"
                           VerticalGridLinesBrush="#28abb9" HorizontalGridLinesBrush="#28abb9"
                                   CanUserDeleteRows="False" IsReadOnly="True"
                        VerticalContentAlignment="Center" HorizontalContentAlignment="Center"  VerticalAlignment="Top" GridLinesVisibility="All" CanUserReorderColumns="False" CanUserResizeColumns="False" MouseDoubleClick="grdItemLists_MouseDoubleClick" SelectionChanged="grdItemLists_SelectionChanged" MouseLeftButtonDown="grdItemLists_MouseLeftButtonDown" >
@@ -198,8 +199,8 @@
                     </DataGrid.Columns>
                 </DataGrid>
 
-            </DockPanel>
-        </Border>
+            <!--</DockPanel>-->
+        <!--</Border>-->
         
        
 

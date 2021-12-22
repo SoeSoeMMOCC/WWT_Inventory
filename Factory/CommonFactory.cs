@@ -18,6 +18,7 @@ namespace WWT_Inventory.Factory
         public static SaleOrderDetail selSaleOrderDetail = new SaleOrderDetail();
         public static string PurInvoiceNo = "";
         public static string SaleInvoiceNo = "";
+        public static bool isAdmin = true;
         
     }
 }

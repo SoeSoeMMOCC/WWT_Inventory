@@ -83,6 +83,9 @@ namespace WWT_Inventory.View.Sale
             total = discount = tax = amount = 0;
             date.SelectedDate = DateTime.Now;
             CommonFactory.SaleInvoiceNo = "";
+            grdOrderList.ItemsSource = null;
+            saleOrderDetails = new List<SaleOrderDetail>();
+            saleOrderHdr = new SaleOrderHdr();
         }
 
         private void cb_category_KeyDown(object sender, KeyEventArgs e)
@@ -95,7 +98,7 @@ namespace WWT_Inventory.View.Sale
 
         private void cb_category_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (cb_category.SelectedValue != null || cb_category.SelectedValue.ToString() != "")
+            if (cb_category.SelectedValue != null)
             {
                 cb_subcategory.ItemsSource = subCategories.FindAll(x => x.CategoryCD == cb_category.SelectedValue.ToString());
                 cb_subcategory.SelectedValuePath = "SubCategoryCD";
@@ -172,6 +175,12 @@ namespace WWT_Inventory.View.Sale
 
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
+            if(saleOrderDetails.Count()<=0 || saleOrderDetails == null)
+            {
+                MessageBox.Show("No Order Information.", "Invalid Order Count.", MessageBoxButton.OK, MessageBoxImage.Error);
+                cb_category.Focus();
+                return;
+            }
             string N_OrderCD = inventoryController.generateNoseries(WWT_Inventory.Properties.Settings.Default.DeviceID, "SaleOrder", out error);
             saleOrderHdr.SaleOrderCD = N_OrderCD;
             saleOrderHdr.SaleOrderDate = date.SelectedDate.Value;
@@ -189,7 +198,15 @@ namespace WWT_Inventory.View.Sale
                 MessageBox.Show("Sale Saved.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
                 SaleInvoiceViewer saleInvoiceViewer = new SaleInvoiceViewer();
                 saleInvoiceViewer.ShowDialog();
-                this.Close();
+                if (CommonFactory.isAdmin)
+                {
+                    this.Close();
+                }
+                else
+                {
+                    Window_Loaded(sender, e);
+                }
+                
             }
             else
             {
@@ -201,7 +218,10 @@ namespace WWT_Inventory.View.Sale
 
         private void btn_close_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            if (CommonFactory.isAdmin)
+                this.Close();
+            else
+                Application.Current.Shutdown();
         }
 
         private void grdItemList_MouseDoubleClick(object sender, MouseButtonEventArgs e)

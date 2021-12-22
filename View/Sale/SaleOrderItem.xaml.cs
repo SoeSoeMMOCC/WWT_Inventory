@@ -157,6 +157,7 @@ namespace WWT_Inventory.View.Sale
         private void btn_cancel_Click(object sender, RoutedEventArgs e)
         {
             status = false;
+            this.Close();
         }
 
         private void btn_cancel_KeyDown(object sender, KeyEventArgs e)

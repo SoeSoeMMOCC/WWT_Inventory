@@ -14,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WWT_Inventory.Factory;
 using WWT_Inventory.View;
 using WWT_Inventory.View.Inventory;
 using WWT_Inventory.View.Purchase;
@@ -42,12 +43,16 @@ namespace WWT_Inventory
             if (loginView.status)
             {
                 if (loginView.role == ConfigurationManager.AppSettings.Get("AdminRole"))
+                {
+                    CommonFactory.isAdmin = true;
                     this.Show();
+                }                    
                 else if (loginView.role == ConfigurationManager.AppSettings.Get("SaleRole"))
                 {
+                    CommonFactory.isAdmin = false;
                     SaleOrderAddView saleOrder = new SaleOrderAddView();
                     saleOrder.ShowDialog();
-                    Application.Current.Shutdown();
+                    //Application.Current.Shutdown();
                 }
                     
 

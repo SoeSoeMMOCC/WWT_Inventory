@@ -133,6 +133,12 @@ namespace WWT_Inventory.View.Sale
 
         private void btn_save_Click(object sender, RoutedEventArgs e)
         {
+            if (txt_name.Text.ToString().Trim() == "")
+            {
+                MessageBox.Show("Please Enter Customer Name.", "Required Customer Name.", MessageBoxButton.OK, MessageBoxImage.Error);
+                txt_name.Focus();
+                return;
+            }
             if (CommonFactory.isNew)
             {
                 string N_CD = inventoryController.generateNoseries(WWT_Inventory.Properties.Settings.Default.DeviceID, "Customer", out error);
