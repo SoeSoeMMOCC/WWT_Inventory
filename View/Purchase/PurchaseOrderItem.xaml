@@ -65,8 +65,8 @@
             <TextBox x:Name="txt_name" Grid.Row="1" Grid.Column="3" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="txt_name_KeyDown"/>
             <TextBox x:Name="txt_shortcode" Grid.Row="1" Grid.Column="7" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="txt_shortcode_KeyDown"/>
             <ComboBox x:Name="cb_unit" Grid.Row="2" Grid.Column="3" Margin="5 0 5 5" KeyDown="cb_unit_KeyDown" SelectionChanged="cb_unit_SelectionChanged" />
-            <TextBox x:Name="txt_purprice" Grid.Row="3" Grid.Column="3" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="txt_purprice_KeyDown"/>
-            <TextBox x:Name="txt_qty" Grid.Row="2" Grid.Column="7" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="txt_qty_KeyDown" />
+            <TextBox x:Name="txt_purprice" Grid.Row="3" Grid.Column="3" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="txt_purprice_KeyDown" PreviewTextInput="PreviewDecimalInput"/>
+            <TextBox x:Name="txt_qty" Grid.Row="2" Grid.Column="7" Margin="5 0 5 5" HorizontalContentAlignment="Right" KeyDown="txt_qty_KeyDown" PreviewTextInput="PreviewIntegerInput"/>
           
            
         </Grid>

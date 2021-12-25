@@ -84,7 +84,11 @@ namespace WWT_Inventory.View.Sale
         private void cb_unit_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
+            {
                 txt_qty.Focus();
+                txt_qty.SelectAll();
+            }
+                
         }
 
         private void cb_unit_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -103,7 +107,10 @@ namespace WWT_Inventory.View.Sale
         private void txt_qty_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
+            {
                 txt_saleprice.Focus();
+                txt_saleprice.SelectAll();
+            }
         }
 
 
@@ -172,6 +179,18 @@ namespace WWT_Inventory.View.Sale
         {
             if (e.Key == Key.Enter)
                 cb_saletype.Focus();
+        }
+        private void PreviewIntegerInput(object sender, TextCompositionEventArgs e)
+        {
+            //Regex regex = new Regex("[^0-9]+");
+            //e.Handled = regex.IsMatch(e.Text);
+            CommonFactory.InputIntegerCheck(sender, e);
+        }
+        private void PreviewDecimalInput(object sender, TextCompositionEventArgs e)
+        {
+            //Regex regex = new Regex("^[.][0-9]+$|^[0-9]*[.]{0,1}[0-9]*$");
+            //e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+            CommonFactory.InputDecimalCheck(sender, e);
         }
     }
 }

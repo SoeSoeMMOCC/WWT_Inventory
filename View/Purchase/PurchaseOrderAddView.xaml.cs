@@ -271,8 +271,13 @@ namespace WWT_Inventory.View.Purchase
 
         private void txt_discount_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Key==Key.Enter)
+            if (e.Key == Key.Enter)
+            {
                 calculateAmount();
+                txt_tax.Focus();
+                txt_tax.SelectAll();
+            }
+                
         }
 
         private void txt_tax_KeyDown(object sender, KeyEventArgs e)
@@ -300,6 +305,12 @@ namespace WWT_Inventory.View.Purchase
         private void btn_close_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+        private void PreviewDecimalInput(object sender, TextCompositionEventArgs e)
+        {
+            //Regex regex = new Regex("^[.][0-9]+$|^[0-9]*[.]{0,1}[0-9]*$");
+            //e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+            CommonFactory.InputDecimalCheck(sender, e);
         }
     }
 }

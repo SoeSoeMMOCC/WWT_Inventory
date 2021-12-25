@@ -182,10 +182,10 @@
                 <TextBox x:Name="txt_totalamount" Grid.Row="0" Grid.Column="3" Margin="5" BorderBrush="#28abb9" BorderThickness="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>
                 <Label Content="Discount Amount" Grid.Row="1" Grid.Column="1"/>
                 <Label Content=":" Grid.Row="1" Grid.Column="2"/>
-                <TextBox Name="txt_discount" Grid.Row="1" Grid.Column="3" Margin="5" BorderBrush="#28abb9" BorderThickness="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" KeyDown="txt_discount_KeyDown"/>
+                <TextBox Name="txt_discount" Grid.Row="1" Grid.Column="3" Margin="5" BorderBrush="#28abb9" BorderThickness="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" KeyDown="txt_discount_KeyDown" PreviewTextInput="PreviewDecimalInput"/>
                 <Label Content="Tax Amount" Grid.Row="2" Grid.Column="1"/>
                 <Label Content=":" Grid.Row="2" Grid.Column="2"/>
-                <TextBox Name="txt_tax" Grid.Row="2" Grid.Column="3" Margin="5" BorderBrush="#28abb9" BorderThickness="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" KeyDown="txt_tax_KeyDown"/>
+                <TextBox Name="txt_tax" Grid.Row="2" Grid.Column="3" Margin="5" BorderBrush="#28abb9" BorderThickness="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center" KeyDown="txt_tax_KeyDown" PreviewTextInput="PreviewDecimalInput"/>
                 <Label Content="Amount" Grid.Row="3" Grid.Column="1"/>
                 <Label Content=":" Grid.Row="3" Grid.Column="2"/>
                 <TextBox Name="txt_amount" Grid.Row="3" Grid.Column="3" Margin="5" BorderBrush="#28abb9" BorderThickness="1" HorizontalContentAlignment="Right" VerticalContentAlignment="Center"/>

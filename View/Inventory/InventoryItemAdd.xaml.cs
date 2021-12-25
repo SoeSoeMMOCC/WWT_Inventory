@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -177,7 +178,23 @@ namespace WWT_Inventory.View.Inventory
         {
             if (e.Key == Key.Enter)
             {
-                txt_maxqty.Focus();
+                if(txt_minqty.Text.ToString()==null || txt_minqty.Text.ToString() == "")
+                {
+                    MessageBox.Show("Please enter valid Number Value.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                    txt_minqty.Focus();
+                    txt_minqty.SelectAll();
+                    return;
+                }
+                else if (Convert.ToInt32(txt_minqty.Text.ToString()) < 0)
+                {
+                    MessageBox.Show("Please enter valid Number Value.", "Invalid Input", MessageBoxButton.OK, MessageBoxImage.Error);
+                    txt_minqty.Focus();
+                    txt_minqty.SelectAll();
+                }
+                else
+                {
+                    txt_maxqty.Focus();
+                }                
             }
         }
 
@@ -259,6 +276,20 @@ namespace WWT_Inventory.View.Inventory
                 MessageBox.Show("Please enter valid information, please check your input values.", "Invalid Input.", MessageBoxButton.OK, MessageBoxImage.Error);
                 txt_name.Focus();
             }
+            else if (Convert.ToInt32(txt_minqty.Text.ToString())<0 || Convert.ToInt32(txt_maxqty.Text.ToString())<0 
+                || Convert.ToDecimal(txt_purprice.Text.ToString())<0 || Convert.ToDecimal(txt_sellingprice.Text.ToString())<0)                
+            {
+                MessageBox.Show("Please enter valid Number Values, please check your input values.", "Invalid Input.", MessageBoxButton.OK, MessageBoxImage.Error);
+                txt_minqty.Focus();
+                txt_minqty.SelectAll();
+            }
+            else if(Convert.ToInt32(txt_minqty.Text.ToString())> Convert.ToInt32(txt_maxqty.Text.ToString()))
+            {
+                MessageBox.Show("Please enter valid Min/Max Qty, please check your Max Qty Value.", "Invalid Input.", MessageBoxButton.OK, MessageBoxImage.Error);
+                txt_maxqty.Focus();
+                txt_maxqty.SelectAll();
+            }
+
             else
             {
                 Item saveItem = GetInput();
@@ -327,5 +358,18 @@ namespace WWT_Inventory.View.Inventory
                 cb_category.Focus();
             }
         }
+        private void PreviewIntegerInput(object sender, TextCompositionEventArgs e)
+        {
+            //Regex regex = new Regex("[^0-9]+");
+            //e.Handled = regex.IsMatch(e.Text);
+            CommonFactory.InputIntegerCheck(sender, e);
+        }
+        private void PreviewDecimalInput(object sender, TextCompositionEventArgs e)
+        {
+            //Regex regex = new Regex("^[.][0-9]+$|^[0-9]*[.]{0,1}[0-9]*$");
+            //e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+            CommonFactory.InputDecimalCheck(sender, e);
+        }
     }
 }
+

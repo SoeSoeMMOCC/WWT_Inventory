@@ -231,5 +231,18 @@ namespace WWT_Inventory.View.Inventory
             /* Clearing Data After Update or Save Item Information */
             Window_Loaded(sender, e);
         }
+
+        private void PreviewIntegerInput(object sender, TextCompositionEventArgs e)
+        {
+            //Regex regex = new Regex("[^0-9]+");
+            //e.Handled = regex.IsMatch(e.Text);
+            CommonFactory.InputIntegerCheck(sender, e);
+        }
+        private void PreviewDecimalInput(object sender, TextCompositionEventArgs e)
+        {
+            //Regex regex = new Regex("^[.][0-9]+$|^[0-9]*[.]{0,1}[0-9]*$");
+            //e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+            CommonFactory.InputDecimalCheck(sender, e);
+        }
     }
 }

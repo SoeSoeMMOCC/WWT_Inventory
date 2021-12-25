@@ -80,7 +80,10 @@ namespace WWT_Inventory.View.Purchase
         private void txt_qty_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)
+            {
                 txt_purprice.Focus();
+                txt_purprice.SelectAll();
+            }                
         }
 
         private void txt_purprice_KeyDown(object sender, KeyEventArgs e)
@@ -143,6 +146,18 @@ namespace WWT_Inventory.View.Purchase
                     txt_purprice.Text = item.PurPrice.ToString();
                 }
             }
+        }
+        private void PreviewIntegerInput(object sender, TextCompositionEventArgs e)
+        {
+            //Regex regex = new Regex("[^0-9]+");
+            //e.Handled = regex.IsMatch(e.Text);
+            CommonFactory.InputIntegerCheck(sender, e);
+        }
+        private void PreviewDecimalInput(object sender, TextCompositionEventArgs e)
+        {
+            //Regex regex = new Regex("^[.][0-9]+$|^[0-9]*[.]{0,1}[0-9]*$");
+            //e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
+            CommonFactory.InputDecimalCheck(sender, e);
         }
     }
 }
