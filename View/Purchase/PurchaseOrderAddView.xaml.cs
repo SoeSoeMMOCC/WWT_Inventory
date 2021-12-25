@@ -294,6 +294,18 @@ namespace WWT_Inventory.View.Purchase
                 cb_supplier.Focus();
         }
 
+        private void btn_add_sup_Click(object sender, RoutedEventArgs e)
+        {
+            PurchaseSupplierAdd supplierAdd = new PurchaseSupplierAdd();
+            supplierAdd.ShowDialog();
+            suppliers = inventoryController.getSuppliers("%", out error);
+            cb_supplier.ItemsSource = null;
+            cb_supplier.ItemsSource = suppliers;
+            cb_supplier.SelectedValuePath = "SupplierCD";
+            cb_supplier.DisplayMemberPath = "SupplierName";
+            cb_supplier.SelectedIndex = 0;
+        }
+
         private void btn_close_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.Key == Key.Enter)

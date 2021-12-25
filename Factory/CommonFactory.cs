@@ -32,6 +32,21 @@ namespace WWT_Inventory.Factory
             Regex regex = new Regex("^[.][0-9]+$|^[0-9]*[.]{0,1}[0-9]*$");
             e.Handled = !regex.IsMatch((sender as TextBox).Text.Insert((sender as TextBox).SelectionStart, e.Text));
         }
-        
+        public static void InputEmailCheck(object sender,TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex(@"^([\w\.\-]+)@([\w\-]+)((\.(\w){2,3})+)$");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+        public static bool IsValidEmail(string email)
+        {
+            Regex regex = new Regex(@"^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$");
+            return regex.IsMatch(email);
+        }
+        public static void InputPhoneNoCheck(object sender, TextCompositionEventArgs e)
+        {
+            Regex regex = new Regex("[^0-9]+");
+            e.Handled = regex.IsMatch(e.Text);
+        }
+
     }
 }

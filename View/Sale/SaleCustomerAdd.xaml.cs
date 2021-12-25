@@ -180,5 +180,10 @@ namespace WWT_Inventory.View.Sale
             /* Clearing Data After Update or Save Item Information */
             Window_Loaded(sender, e);
         }
+
+        private void PreviewPhoneInput(object sender, TextCompositionEventArgs e)
+        {
+            CommonFactory.InputPhoneNoCheck(sender, e);
+        }
     }
 }

@@ -101,6 +101,14 @@ namespace WWT_Inventory.View.Purchase
             {
                 MessageBox.Show("Please Enter Supplier Name.", "Required Supplier Name.", MessageBoxButton.OK, MessageBoxImage.Error);
                 txt_name.Focus();
+                txt_name.SelectAll();
+                return;
+            }
+            if (!CommonFactory.IsValidEmail(txt_email.Text.ToString()))
+            {
+                MessageBox.Show("Please Enter Valid Email.", "Required Valid Email.", MessageBoxButton.OK, MessageBoxImage.Error);
+                txt_email.Focus();
+                txt_email.SelectAll();
                 return;
             }
             if (CommonFactory.isNew)
@@ -187,6 +195,14 @@ namespace WWT_Inventory.View.Purchase
                 Window_Loaded(sender, e);
             }
             //Do whatever you wanted to do with MyObject.ID
+        }
+        private void PreviewEmailInput(object sender, TextCompositionEventArgs e)
+        {
+            CommonFactory.InputEmailCheck(sender, e);
+        }
+        private void PreviewPhoneInput(object sender, TextCompositionEventArgs e)
+        {
+            CommonFactory.InputPhoneNoCheck(sender, e);
         }
     }
 }
